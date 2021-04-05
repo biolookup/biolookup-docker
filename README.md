@@ -22,7 +22,7 @@ A dockerfile for pulling the latest Bioresolver service and running its web app.
 The image is hosted on Docker Hub under `cthoyt/bioresolver:latest` and can be run with
 
 ```shell
-$ docker run -id -p 8765:8765 --env-file bioresolver.env cthoyt/bionames:latest
+$ docker run -id -p 8765:8765 --env-file bioresolver.env cthoyt/bioresolver:latest
 ```
  
 The default port run by the app is `8765`, but the `-p` option lets you map it to another port.
@@ -30,7 +30,7 @@ You'll need an environment file the same as described above. Alternatively, envi
 can be passed with `--env` (or `-e` for short) like in:
 
 ```shell
-$ docker run -id -p 8765:8765 --env PYOBO_SQLALCHEMY_URI=foo cthoyt/bionames:latest
+$ docker run -id -p 8765:8765 --env PYOBO_SQLALCHEMY_URI=foo cthoyt/bioresolver:latest
 ```
 
 ## Push
