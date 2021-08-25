@@ -1,6 +1,8 @@
-FROM python:3.8
+FROM python:3.9-alpine
 
 RUN python -m pip install --upgrade pip
 RUN python -m pip install gunicorn
+# Uncomment if you want to get the latest eversion
+# RUN python -m pip install "pyobo>=0.6.2[web,database]"
 RUN python -m pip install git+https://github.com/pyobo/pyobo.git#egg=pyobo[web,database]
-ENTRYPOINT pyobo apps resolver --port 8765 --host "0.0.0.0" --sql --with-gunicorn --workers 4
+ENTRYPOINT biolookup --port 8765 --host "0.0.0.0" --sql --with-gunicorn --workers 4
