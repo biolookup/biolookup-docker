@@ -33,6 +33,23 @@ A dockerfile for pulling the latest Biolookup service and running its web app. R
     $ docker-compose up
     ```
 
+### 🏗️ Building and Running Locally from Docker
+
+After cloning, the image can be built locally with:
+
+```shell
+$ docker build -t biolookup:latest .
+$ docker run -d -p 8765:8765 --env-file biolookup.env biolookup:latest
+```
+
+You'll need an environment file the same as described above. Alternatively, environment variables
+can be passed with `--env` (or `-e` for short) like in:
+
+```shell
+$ docker build -t biolookup:latest .
+$ docker run -d -p 8765:8765 --env PYOBO_SQLALCHEMY_URI=foo biolookup:latest
+```
+
 ### 🐋 Running Locally from Docker
 
 The image is hosted on Docker Hub under `cthoyt/biolookup:latest` and can be run with:
