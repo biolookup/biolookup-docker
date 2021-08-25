@@ -39,15 +39,16 @@ After cloning, the image can be built locally with:
 
 ```shell
 $ docker build -t biolookup:latest .
-$ docker run -d -p 8765:8765 --env-file biolookup.env biolookup:latest
+$ docker run --name biolookup -d -p 8765:8765 --env-file biolookup.env biolookup:latest
 ```
 
+Where `-d` means "detached" mode.
 You'll need an environment file the same as described above. Alternatively, environment variables
 can be passed with `--env` (or `-e` for short) like in:
 
 ```shell
 $ docker build -t biolookup:latest .
-$ docker run -d -p 8765:8765 --env PYOBO_SQLALCHEMY_URI=foo biolookup:latest
+$ docker run --name biolookup -d -p 8765:8765 --env PYOBO_SQLALCHEMY_URI=foo biolookup:latest
 ```
 
 ### 🐋 Running Locally from Docker
@@ -72,7 +73,7 @@ The logs can be shown with
 
 ```shell
 $ BIOLOOKUP_CONTAINER_ID=$(docker ps --filter "name=biolookup" -q)
-$ docker exec $BIOLOOKUP_CONTAINER_ID -it /usr/bin/tail -f <logging path>
+$ docker exec $BIOLOOKUP_CONTAINER_ID /usr/bin/tail -f /root/.data/pyobo/biolookup/log.txt
 ```
 
 ## 📡 Pushing to Docker Hub
