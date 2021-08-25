@@ -1,4 +1,4 @@
-FROM python:3.9-alpine
+FROM python:3.9
 
 RUN python -m pip install --upgrade pip
 RUN python -m pip install gunicorn
