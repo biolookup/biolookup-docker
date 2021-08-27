@@ -72,8 +72,7 @@ $ docker run -id --name biolookup -p 8765:8765 --env PYOBO_SQLALCHEMY_URI=foo ct
 The logs can be shown with
 
 ```shell
-$ BIOLOOKUP_CONTAINER_ID=$(docker ps --filter "name=biolookup" -q)
-$ docker exec $BIOLOOKUP_CONTAINER_ID /usr/bin/tail -f /root/.data/pyobo/biolookup/log.txt
+$ docker exec $(docker ps --filter "name=biolookup" -q) /usr/bin/tail -f /root/.data/pyobo/biolookup/log.txt
 ```
 
 ## 📡 Pushing to Docker Hub
