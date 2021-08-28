@@ -2,9 +2,15 @@ version: '3'
 
 services:
   app:
-    build: .
+    image: biopragmatics/biolookup:latest
     environment:
-      PYOBO_SQLALCHEMY_URI: ${PYOBO_SQLALCHEMY_URI}
+      PYOBO_SQLALCHEMY_URI: postgresql+psycopg2://postgres:biolookup@database/biolookup
     restart: always
     ports:
       - "8765:8765"
+    depends_on:
+      - database
+  database:
+    image: biopragmatics/postgres-biolookup:latest
+    ports:
+      - "5432:5432"

@@ -53,10 +53,10 @@ $ docker run --name biolookup -d -p 8765:8765 --env PYOBO_SQLALCHEMY_URI=foo bio
 
 ### 🐋 Running Locally from Docker
 
-The image is hosted on Docker Hub under `cthoyt/biolookup:latest` and can be run with:
+The image is hosted on Docker Hub under `biopragmatics/biolookup:latest` and can be run with:
 
 ```shell
-$ docker run -id --name biolookup -p 8765:8765 --env-file biolookup.env cthoyt/biolookup:latest
+$ docker run -id --name biolookup -p 8765:8765 --env-file biolookup.env biopragmatics/biolookup:latest
 ```
 
 The default port run by the app is `8765`, but the `-p` option lets you map it to another port.
@@ -64,7 +64,7 @@ You'll need an environment file the same as described above. Alternatively, envi
 can be passed with `--env` (or `-e` for short) like in:
 
 ```shell
-$ docker run -id --name biolookup -p 8765:8765 --env PYOBO_SQLALCHEMY_URI=foo cthoyt/biolookup:latest
+$ docker run -id --name biolookup -p 8765:8765 --env PYOBO_SQLALCHEMY_URI=foo biopragmatics/biolookup:latest
 ```
 
 ## 🕵️ Logging
@@ -80,7 +80,7 @@ $ docker exec $(docker ps --filter "name=biolookup" -q) /usr/bin/tail -f /root/.
 This repository is set up with
 a [GitHub Action](https://github.com/biolookup/biolookup-docker/actions/workflows/ci.yml)
 to build the dockerfile and push
-to [Docker Hub](https://hub.docker.com/repository/docker/cthoyt/biolookup).
+to [Docker Hub](https://hub.docker.com/repository/docker/biopragmatics/biolookup).
 
 ## 🎁 Support
 
