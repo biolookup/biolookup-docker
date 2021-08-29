@@ -4,18 +4,12 @@ This repository uses Docker to containerize the Biolookup Service web applicatio
 of [PyOBO](https://github.com/pyobo/pyobo). A public instance maintained by
 the [INDRA Lab](https://indralab.github.io) is served at http://biolookup.io.
 
-## Building Database
+## Running the Biolookup Service
 
-```shell
-$ pyobo database build
-$ pyobo database sql load
-```
-
-If `--uri` is not given for the load command, it uses `pystow.get_config("pyobo","sqlalchemy_uri)`
-to look up from `PYOBO_SQLALCHEMY_URI` or in `~/.config/pyobo.ini`If none is given, a default SQLite
-database will be created in `~/.data/pyobo/pyobo.db`.
-
-## Running
+Before running the Biolookup Service, you'll need to prepare either a local database or get a
+connection string to a remote database.
+See [here](https://github.com/biolookup/biolookup#%EF%B8%8F-load-the-database)
+for instructions on loading the database.
 
 ### 🌐 Running Locally from Source
 
@@ -42,9 +36,8 @@ $ docker build -t biolookup:latest .
 $ docker run --name biolookup -d -p 8765:8765 --env-file biolookup.env biolookup:latest
 ```
 
-Where `-d` means "detached" mode.
-You'll need an environment file the same as described above. Alternatively, environment variables
-can be passed with `--env` (or `-e` for short) like in:
+Where `-d` means "detached" mode. You'll need an environment file the same as described above.
+Alternatively, environment variables can be passed with `--env` (or `-e` for short) like in:
 
 ```shell
 $ docker build -t biolookup:latest .
