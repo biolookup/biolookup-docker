@@ -9,7 +9,7 @@ docker stop $BIOLOOKUP_CONTAINER_ID
 docker rm $BIOLOOKUP_CONTAINER_ID
 
 # Pull the latest
-docker pull cthoyt/biolookup:latest
+docker pull biopragmatics/biolookup:latest
 
 # Run the start script
-docker run -id --name biolookup -p 8766:8766 cthoyt/biolookup:latest
+docker run -id --name biolookup -p 8766:8766 biopragmatics/biolookup:latest
