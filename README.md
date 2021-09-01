@@ -8,7 +8,7 @@ the [INDRA Lab](https://indralab.github.io) is served at http://biolookup.io.
 
 Before running the Biolookup Service, you'll need to prepare either a local database or get a
 connection string to a remote database.
-See [here](https://github.com/biolookup/biolookup#%EF%B8%8F-load-the-database)
+See [here](https://github.com/biopragmatics/biolookup#%EF%B8%8F-load-the-database)
 for instructions on loading the database.
 
 ### 🌐 Running Locally from Source
@@ -22,7 +22,7 @@ A dockerfile for pulling the latest Biolookup service and running its web app. R
 2. Run the following code:
 
     ```shell
-    $ git clone https://github.com/biolookup/biolookup-docker.git
+    $ git clone https://github.com/biopragmatics/biolookup-docker.git
     $ cd biolookup-docker
     $ docker-compose up
     ```
@@ -71,7 +71,7 @@ $ docker exec $(docker ps --filter "name=biolookup" -q) /usr/bin/tail -f /root/.
 ## 📡 Pushing to Docker Hub
 
 This repository is set up with
-a [GitHub Action](https://github.com/biolookup/biolookup-docker/actions/workflows/ci.yml)
+a [GitHub Action](https://github.com/biopragmatics/biolookup-docker/actions/workflows/ci.yml)
 to build the dockerfile and push
 to [Docker Hub](https://hub.docker.com/repository/docker/biopragmatics/biolookup).
 
