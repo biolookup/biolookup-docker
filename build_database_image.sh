@@ -25,20 +25,12 @@ if [ -n "$POSTGRES_CONTAINER_ID" ]; then
   docker rm $POSTGRES_CONTAINER_ID
 fi
 
-docker run \
-  -p "$PORT:5432" \
-  --name "postgres-biolookup" \
-  --detach \
-  -e POSTGRES_PASSWORD=$PGPASSWORD \
-  -e PGDATA=/var/lib/postgresql/pgdata \
-  --shm-size 1gb postgres
+docker run -p "$PORT:5432" --name "$NAME" --detach -e POSTGRES_PASSWORD=$PGPASSWORD -e PGDATA=/var/lib/postgresql/pgdata --shm-size 1gb postgres
 
 sleep 5
 createdb -h localhost -p $PORT -U postgres $DATABASE
 
 biolookup load --uri "postgresql+psycopg2://postgres:$PGPASSWORD@localhost:$PORT/$DATABASE"
 
-docker commit \
-    $(docker ps --filter "name=$NAME" -q) \
-    biopragmatics/postgres-biolookup:latest
+docker commit $(docker ps --filter "name=$NAME" -q) biopragmatics/postgres-biolookup:latest
 docker push biopragmatics/postgres-biolookup:latest
