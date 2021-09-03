@@ -15,7 +15,7 @@ for instructions on loading the database.
 
 A dockerfile for pulling the latest Biolookup service and running its web app. Run with:
 
-1. Make an `.env` file with `PYOBO_SQLALCHEMY_URI`. If you're on Mac and trying to connect to
+1. Make an `.env` file with `BIOLOOKUP_SQLALCHEMY_URI`. If you're on Mac and trying to connect to
    `localhost`, use `host.docker.internal`
    instead ([ref](https://stackoverflow.com/questions/30239152/specify-extras-require-with-pip-install-e))
    .
@@ -41,12 +41,14 @@ Alternatively, environment variables can be passed with `--env` (or `-e` for sho
 
 ```shell
 $ docker build -t biolookup:latest .
-$ docker run --name biolookup -d -p 8765:8765 --env PYOBO_SQLALCHEMY_URI=foo biolookup:latest
+$ docker run --name biolookup -d -p 8765:8765 --env BIOLOOKUP_SQLALCHEMY_URI=foo biolookup:latest
 ```
 
 ### 🐋 Running Locally from Docker
 
-The image is hosted on Docker Hub under `biopragmatics/biolookup:latest` and can be run with:
+The image is hosted on Docker Hub
+under [`biopragmatics/biolookup:latest`](https://hub.docker.com/r/biopragmatics/biolookup) and can
+be run with:
 
 ```shell
 $ docker run -id --name biolookup -p 8765:8765 --env-file biolookup.env biopragmatics/biolookup:latest
@@ -57,7 +59,7 @@ You'll need an environment file the same as described above. Alternatively, envi
 can be passed with `--env` (or `-e` for short) like in:
 
 ```shell
-$ docker run -id --name biolookup -p 8765:8765 --env PYOBO_SQLALCHEMY_URI=foo biopragmatics/biolookup:latest
+$ docker run -id --name biolookup -p 8765:8765 --env BIOLOOKUP_SQLALCHEMY_URI=foo biopragmatics/biolookup:latest
 ```
 
 ## 🕵️ Logging
