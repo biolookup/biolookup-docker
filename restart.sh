@@ -1,12 +1,13 @@
 #!/bin/bash
 
-# store the biolookup id
-BIOLOOKUP_CONTAINER_ID=$(docker ps --filter "name=biolookup" -q)
+# Store the container's hash
+BIOLOOKUP_CONTAINER_ID=$(docker ps --filter "name=biolookup" -aq)
 
-# Stop and remove the old container taking advantage
-#  of the fact that it's named specifically
-docker stop $BIOLOOKUP_CONTAINER_ID
-docker rm $BIOLOOKUP_CONTAINER_ID
+# Stop and remove the old container, taking advantage of the fact that it's named specifically
+if [ -n "BIOLOOKUP_CONTAINER_ID" ]; then
+  docker stop BIOLOOKUP_CONTAINER_ID
+  docker rm BIOLOOKUP_CONTAINER_ID
+fi
 
 # Pull the latest
 docker pull biopragmatics/biolookup:latest
