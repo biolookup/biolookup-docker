@@ -28,7 +28,7 @@ A dockerfile for pulling the latest Biolookup service and running its web app. R
     ```
   
     In case you're using a non-standard named `docker-compose.yml`, you can pass the `-f` flag
-    to give the name of the file
+    to give the name of the file like in `docker-compose -f biolookup-compose.yml up --detach`.
 
 ### 🏗️ Building and Running Locally from Docker
 
