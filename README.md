@@ -26,6 +26,9 @@ A dockerfile for pulling the latest Biolookup service and running its web app. R
     $ cd biolookup-docker
     $ docker-compose up
     ```
+  
+    In case you're using a non-standard named `docker-compose.yml`, you can pass the `-f` flag
+    to give the name of the file
 
 ### 🏗️ Building and Running Locally from Docker
 
